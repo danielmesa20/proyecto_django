@@ -25,10 +25,29 @@ def REGISTER(request):
                     user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                     user.save()
                     messages.info(request, 'Usuario creado')
-                    return redirect('/')
+                    return redirect('LOGIN')
           else:
                messages.info(request, 'Las contraseñas no coinciden')
                return redirect('REGISTER')
      else:
           return render(request, "registro.html")
 
+def LOGIN(request):
+     if request.method == 'POST':
+          print("poos")
+          username = request.POST['username']
+          password = request.POST['password']
+          user = auth.authenticate(username=username,password=password)
+          if user is not None:
+               auth.login(request, user)
+               return render(request, 'home.html')
+               #redirect("/")
+          else:
+               messages.info(request, "Error en las credenciales")
+               return redirect("LOGIN")
+     else:
+          return render(request, 'login.html')
+
+def LOGOUT(request):
+     auth.logout(request)
+     return render(request, 'home.html')
