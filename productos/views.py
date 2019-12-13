@@ -8,10 +8,4 @@ def HOME(request):
      return render(request, "home.html",{"products": products})
 
 def STORE(request):
-     products = Productos.objects.all()
      return render(request, "tienda.html")
-
-
-
-# def INFO (request):
-#      return render(request, "home.html", {"fecha": datetime.datetime.now()})

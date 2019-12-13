@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="REGISTER" method="post">
+
+ {% csrf_token %}
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="first_name">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Apellido</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="last_name">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Nombre de usuario</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail1">Correo electronico</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Contraseña</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Confirme su contraseña</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div>
+
+    {% for message in messages %}
+        <h3> {{message}} </h3>
+    {% endfor %}
+
+</div>
+
+{% endblock  %}
