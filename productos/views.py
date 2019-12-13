@@ -8,4 +8,5 @@ def HOME(request):
      return render(request, "home.html",{"products": products})
 
 def STORE(request):
-     return render(request, "tienda.html")
+     products = Productos.objects.all()
+     return render(request, "tienda.html", {"products": products})
