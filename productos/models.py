@@ -6,3 +6,4 @@ class Productos(models.Model):
     precio = models.FloatField()
     cant_disp = models.IntegerField()
     categoria = models.CharField(max_length=30)
+    image = models.ImageField(upload_to='pics')
