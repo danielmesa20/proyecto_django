@@ -15,24 +15,20 @@ def REGISTERR(request):
           email = request.POST['email']
 
           if password == password2:
-               if password.len() >= 5:
                     if User.objects.filter(username=username).exists():
                          messages.info(request, 'Nombre de usuario ya existe')
-                         return redirect("REGISTER")
+                         return redirect("REGISTERR")
                     elif User.objects.filter(email=email).exists():
                          messages.info(request, 'Ese email ya está registrado')
-                         return redirect('REGISTER')
+                         return redirect('REGISTERR')
                     else:
                          user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                          user.save()
                          messages.info(request, 'Usuario creado correctamente')
                          return redirect('LOGIN')
-               else:
-                    messages.info(request, 'La contraseña es muy corta')
-                    return redirect('REGISTER')
           else:
                messages.info(request, 'Las contraseñas no coinciden')
-               return redirect('REGISTER')
+               return redirect('REGISTERR')
      else:
           return render(request, 'registro.html')
 

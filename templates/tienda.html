@@ -24,40 +24,17 @@
                                     <li>
                                         <a href="/productos/STORE/0">TODOS LOS PRODUCTOS</a>
                                     </li>
-                                    <li class="sub-menu">
-                                        <a href="#Electronics" class=" d-flex justify-content-between">
-                                            Electronics
-                                            <div class="right ti-plus"></div>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="#Electronics">Home Appliances</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Smartphones</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Kitchen Appliances</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Computer Accessories</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Meat Alternatives</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Appliances</a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         <a href="/productos/STORE/1">BASES</a>
                                     </li>
                                     <li>
-                                        <a href="/productos/STORE/2">POLVOS</a>
+                                        <a href="{{ products.test }}">POLVOS</a>
                                     </li>
                                     <li>
                                         <a href="/productos/STORE/3">BROCHAS</a>
+                                    </li>
+                                    <li>
+                                        <a href="/productos/STORE/3">PALETAS</a>
                                     </li>
                                 </ul>
                             </div>
@@ -69,34 +46,72 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                    <p>Precio</p>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">1$ - 3$</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">3$ - 10$</a>
-                                    </li>
-                                    <li class="active">
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">> 10$</a>
-                                    </li>
+                                    <li class="sub-menu">
+                                        <a href="#Electronics" class=" d-flex justify-content-between">
+                                            PRECIO
+                                            <div class="right ti-plus"></div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">1$ - 3$</a>
+                                        </li>
+                                        <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">3$ - 10$</a>
+                                        </li>
+                                        <li class="active">
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">> 10$</a>
+                                        </li>
+                                            </ul>
+                                    </li>                                
                                 </ul>
+                                
                                 <ul class="list">
-                                    <p>color</p>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black Leather</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black with red</a>
-                                    </li>
+                                    <li class="sub-menu">
+                                        <a href="#Electronics" class=" d-flex justify-content-between">
+                                            COLOR
+                                            <div class="right ti-plus"></div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">GRIS</a>
+                                        </li>
+                                        <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">AZUL</a>
+                                        </li>
+                                        <li class="active">
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">ROJO</a>
+                                        </li>
+                                            </ul>
+                                    </li>                                
+                                </ul>
+
+                                <ul class="list">
+                                    <li class="sub-menu">
+                                        <a href="#Electronics" class=" d-flex justify-content-between">
+                                            MARCA
+                                            <div class="right ti-plus"></div>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">GRIS</a>
+                                        </li>
+                                        <li>
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">AZUL</a>
+                                        </li>
+                                        <li class="active">
+                                            <input type="radio" aria-label="Radio button for following text input">
+                                            <a href="#">ROJO</a>
+                                        </li>
+                                            </ul>
+                                    </li>                                
                                 </ul>
                             </div>
                         </aside>
@@ -121,6 +136,7 @@
                                         <div class="category_product_text">
                                             <a href="single-product.html"><h5>{{product.nombre}}</h5></a>
                                             <p>{{product.precio}}$</p>
+                                             <a href="{{ product.test }}">1$ - 3$</a>
                                         </div>
                                     </div>
                                 </div>

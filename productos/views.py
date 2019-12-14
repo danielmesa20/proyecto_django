@@ -1,12 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from productos.models import Productos
 
 # Create your views here.
 
 def HOME(request):
-     base = Productos.objects.filter(categoria="Base")
-     labial = Productos.objects.filter(categoria="Labiales")
-     return render(request, "home.html",{"base": base, "labial": labial})
+     return render(request, "home.html")
 
 def STORE(request, filtro=None):
      if filtro == 0:
@@ -21,3 +19,8 @@ def FAVORITE(request):
      else:
           print("no error")
      return render(request, "tienda.html")
+
+def add_cart(self,cantidad):
+     print("cantidad")
+     print(cantidad)
+     return redirect("/productos/STORE/1")
