@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from productos.views import HOME, STORE
-from autenticacion.views import REGISTER
+from productos.views import HOME
 from django.conf import settings
 from django.conf.urls.static  import static
 

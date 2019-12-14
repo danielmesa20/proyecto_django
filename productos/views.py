@@ -4,8 +4,9 @@ from productos.models import Productos
 # Create your views here.
 
 def HOME(request):
-     products = Productos.objects.all()
-     return render(request, "home.html",{"products": products})
+     base = Productos.objects.filter(categoria="Base")
+     labial = Productos.objects.filter(categoria="Labiales")
+     return render(request, "home.html",{"base": base, "labial": labial})
 
 def STORE(request, filtro=None):
      if filtro == 0:
@@ -14,3 +15,9 @@ def STORE(request, filtro=None):
           products= Productos.objects.filter(categoria="Base")
      return render(request, "tienda.html", {"products": products})
     
+def FAVORITE(request):
+     if not request.user.is_authenticated:
+         print("eror")
+     else:
+          print("no error")
+     return render(request, "tienda.html")

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 
 # Create your views here.
 
-def REGISTER(request):
+def REGISTERR(request):
 
      if request.method == 'POST':
           first_name = request.POST['first_name']
@@ -15,26 +15,29 @@ def REGISTER(request):
           email = request.POST['email']
 
           if password == password2:
-               if User.objects.filter(username=username).exists():
-                    messages.info(request, 'Nombre de usuario ya existe')
-                    return redirect('REGISTER')
-               elif User.objects.filter(email=email).exists():
-                    messages.info(request, 'Ese email ya está registrado')
-                    return redirect('REGISTER')
+               if password.len() >= 5:
+                    if User.objects.filter(username=username).exists():
+                         messages.info(request, 'Nombre de usuario ya existe')
+                         return redirect("REGISTER")
+                    elif User.objects.filter(email=email).exists():
+                         messages.info(request, 'Ese email ya está registrado')
+                         return redirect('REGISTER')
+                    else:
+                         user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+                         user.save()
+                         messages.info(request, 'Usuario creado correctamente')
+                         return redirect('LOGIN')
                else:
-                    user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
-                    user.save()
-                    messages.info(request, 'Usuario creado')
-                    return redirect('LOGIN')
+                    messages.info(request, 'La contraseña es muy corta')
+                    return redirect('REGISTER')
           else:
                messages.info(request, 'Las contraseñas no coinciden')
                return redirect('REGISTER')
      else:
-          return render(request, "registro.html")
+          return render(request, 'registro.html')
 
 def LOGIN(request):
      if request.method == 'POST':
-          print("poos")
           username = request.POST['username']
           password = request.POST['password']
           user = auth.authenticate(username=username,password=password)
